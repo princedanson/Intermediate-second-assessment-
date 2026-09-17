@@ -10,6 +10,8 @@ options = Options()
 options.add_argument("--headless")
 driver = webdriver.Edge(options=options)
 '''
+# Uncomment and comment 2 and 3 to run Question 1
+#Couestion 1 
 try:
     driver.get("https://books.toscrape.com/")
     print(driver.title) 
@@ -64,7 +66,8 @@ finally:
     driver.quit()
 '''
 '''
-
+# Uncomment this and comment 1 and 3 to run Question 2
+#Couestion 2
 try:
     driver.get("https://quotes.toscrape.com/")
     print("Successfully navigated to the quotes page.")
@@ -125,6 +128,10 @@ try:
 
 finally:
     driver.quit()'''
+
+
+# Uncomment this  and comment 1 and 2 to run Question 3
+#Couestion 3
 try:
     url = "https://wikipedia.org/wiki/Special:Random"
     driver.get(url)
@@ -136,11 +143,12 @@ try:
 
 
     current_url  = driver.current_url
-    paragraph = driver.find_elements(By.CSS_SELECTOR,'#mw-content-text  .mw-paser-output > p')
+    paragraph = driver.find_elements(By.CSS_SELECTOR,'#mw-content-text p')
     article_intro = ''
     for p in paragraph:
-        if p.text.strip():
-            article_intro = p.text
+        text = p.text.strip()
+        if text:
+            article_intro = text
             break
     print("=" *50)
     print(f'Random wiki page scrape')
